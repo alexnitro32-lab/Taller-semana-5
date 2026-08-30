@@ -26,5 +26,5 @@ def necesita_reposicion(stock_actual: int, ventas_diarias: float, umbral_dias: i
     return dias < umbral_dias
 
     # umbral_dias = 7
-    # Compara los días calculados contra el "umbral_dias" (por defecto es una semana: 7 días).
+    # Compara los dias calculados contra el "umbral_dias" (por defecto es una semana: 7 dias).
     # Si los dias de stok restantes son menores a 7 dias significa que necesitamos inventario
