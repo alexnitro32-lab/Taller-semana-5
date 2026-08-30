@@ -22,7 +22,7 @@ jobs:  # Son los Trabajos a realizar
           python-version: "3.12"
 
       - name: 3. Instalar herramientas (dependencias)
-        run:    #Los comandos de terminal tradicionales que tú mismo corriste en tu terminal de Windows  (run ejecuta comandos reales de consola) 
+        run: | #Los comandos de terminal tradicionales que tú mismo corriste en tu terminal de Windows  (run ejecuta comandos reales de consola) 
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
