@@ -1,0 +1,33 @@
+# es momento de escribir las instrucciones para que el servidor en la nube de GitHub haga exactamente lo mismo que acabas de hacer tú en la terminal, pero de manera 100% automatizada
+
+name: Pipeline de Integración Continua 
+
+on: # es el Trigger o Disparador
+  push: # lo que estamos diciendo aca es que cada vez que alguien intente subir un codigo directo Push o proponer una fusion de codigo arranca este pipeline de inmediato
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:  # Son los Trabajos a realizar
+  pruebas-y-calidad: #Es el identificador de nuestro trabajo  es el noimbre que le dimos para nuestro trabajo 
+    runs-on: ubuntu-latest # Es el entorno de ejecucion (runner), Es el tipo de sistema operativo que GitHub te va a prestar en sus servidores en la nube para correr tu pipelin Elegimos Ubuntu Linux (ubuntu-latest) porque es el estándar de la industria: es ultra rápido, muy estable y consume poquísimos recursos 
+
+    steps:  # La secuencia ordenada de Pasos que el inspector debe seguir, uno por uno, Si un solo paso falla, se detiene todo y se prende la alarma roja
+      - name: 1. Traer el código del repositorio
+        uses: actions/checkout@v4  #Este paso usa un plugin oficial de GitHub que copia todo tu código desde tu repositorio y lo mete en la máquina virtual. Sin este paso, nada sirve porque la máquina estaría vacía
+
+      - name: 2. Configurar el entorno de Python
+        uses: actions/setup-python@v5 #Este paso instala de forma automatizada el intérprete de Python en la máquina virtual, la estuifa hablando en terminos del ejemplo del restaurtante
+        with:
+          python-version: "3.12"
+
+      - name: 3. Instalar herramientas (dependencias)
+        run:    #Los comandos de terminal tradicionales que tú mismo corriste en tu terminal de Windows  (run ejecuta comandos reales de consola) 
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 4. Inspeccionar limpieza del código con Ruff 
+        run: python -m ruff check .
+
+      - name: 5. Hacer las pruebas con el pytest
+        run: python -m pytest
