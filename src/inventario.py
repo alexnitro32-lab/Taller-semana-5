@@ -1,6 +1,6 @@
 # Este archivo contiene las funciones matematicas que deciden canto
 # inventario le queda a una sucursal y si necesita y si necesita abastecerse 
-
+import sys
 """Calculo de reposicion de inventario para una cadena de tiendas."""
 
 # 1. Calcular los dias de inventario
