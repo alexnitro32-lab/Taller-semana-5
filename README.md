@@ -36,26 +36,21 @@ A continuación se presentan los registros visuales de las tres fases por las qu
 ### 🟢 1. Pipeline Exitoso (Success / Verde)
 *El código cumple con todas las validaciones de formato de Ruff y pasa los 5 tests unitarios de Pytest de manera impecable.*
 
-*(Inserta aquí tu captura del pipeline exitoso en verde de GitHub Actions)*
-`![Pipeline Exitoso](ruta/a/tu/captura_verde.png)`
+![alt text](image-1.png)
 
 ---
 
 ### 🔴 2. Fallo Detectado por Pytest (Rojo - Bug Matemático)
 *Para esta simulación, introdujimos un bug crítico en `src/inventario.py` cambiando el operador de división (`/`) por multiplicación (`*`). El pipeline en la nube se detuvo de inmediato en el paso de pruebas, impidiendo que el código defectuoso continuara hacia producción.*
 
-*(Inserta aquí tu captura del fallo por Pytest en rojo)*
-`![Fallo Pytest](ruta/a/tu/captura_rojo_test.png)`
+![alt text](image.png)
 
 ---
 
 ### 🔴 3. Fallo Detectado por Ruff (Rojo - Código Sucio)
 *Para esta simulación, restauramos la división correcta pero ensuciamos el archivo importando una librería no utilizada (`import sys` en la cabecera). El linter estricto Ruff detectó la importación basura y cortó el avance del pipeline en el Paso 4.*
 
-*(Inserta aquí tu captura del fallo por Linter Ruff en rojo)*
-`![Fallo Linter Ruff](ruta/a/tu/captura_rojo_lint.png)`
-
----
+![alt text](image-2.png)
 
 ## Guía de Ejecución Local
 
