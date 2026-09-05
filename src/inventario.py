@@ -14,7 +14,7 @@ def dias_de_inventario(stock_actual: int, ventas_diarias: float) -> float: #Cuá
     if ventas_diarias == 0: # evitamos que divida por cero es decir si tiene productos pero si vende 0 entonces el inventario duraria infinito algo que debemos evitar
         return -1.0    # capturamos esto y devolvemos un -1.0 como señal de advertencia qye esta haciendolo mal
     
-    return stock_actual / ventas_diarias  # Logica si tengo 100 panes y vendo 10 al dia entonces me duraran 10 dias
+    return stock_actual * ventas_diarias  # Logica si tengo 100 panes y vendo 10 al dia entonces me duraran 10 dias
 
 
 # 2. Decidir si requiere pedir inventario
